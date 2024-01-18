@@ -1,0 +1,6 @@
+#Subset de Datos 
+
+for /LUSTRE/bioinformatica_data/genomica_funcional/Sadot/RawData/Raw_Data/Ov1/*Subset*.fq.gz; do
+    subset_file="${file%.txt}_subset.fq.gz"
+    head -n 40000 "$file" > "$subset_file"
+done
