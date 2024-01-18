@@ -15,7 +15,7 @@ if [ -d "$DIR_FINAL" ]; then
 fi
 
 # my loop
-for IN in $DIR/*_1.fq; do
+for IN in $DIR/*_1.fq.gz; do
 	IN2="${IN/_1/_2}"
 	BASE_NAME_LIB1="${IN#raw_reads//}"
 	BASE_NAME_LIB2="${IN2#raw_reads//}"
@@ -24,8 +24,8 @@ for IN in $DIR/*_1.fq; do
     echo "BASE BASE_NAME_LIB1 IS: $BASE_NAME_LIB1"
     echo "BASE_NAME_LIB2 IS:  $BASE_NAME_LIB2"
     echo processing "$BASE_NAME_L1 and $BASE_NAME_L2 files"
-    cat $IN | head -n $NUM_LINES > ${BASE_NAME_L1}_subset.fq
-    cat $IN2 | head -n $NUM_LINES > ${BASE_NAME_L2}_subset.fq 
+    zcat $IN | head -n $NUM_LINES > ${BASE_NAME_L1}_subset.fq
+    zcat $IN2 | head -n $NUM_LINES > ${BASE_NAME_L2}_subset.fq 
    	gzip ${BASE_NAME_L1}_subset.fq
     gzip ${BASE_NAME_L2}_subset.fq
     mv ${BASE_NAME_L1}_subset.fq.gz $DIR_FINAL
