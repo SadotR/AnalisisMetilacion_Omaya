@@ -6,8 +6,6 @@ DIR="$1"
 NUM_LINES="4"
 DIR_FINAL="subset_reads"
 
-
-
 if [ -d "$DIR_FINAL" ]; then
 	echo "removing last $DIR_FINAL directory"
 	rm -rf $DIR_FINAL
