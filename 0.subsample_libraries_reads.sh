@@ -3,7 +3,7 @@
 
 #my initials vars
 DIR="$1"
-NUM_LINES="4"
+NUM_LINES="40000"
 DIR_FINAL="subset_reads"
 
 
