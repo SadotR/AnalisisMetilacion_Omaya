@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#script to run bismark mapping 
+#script to run Bismark mapping 
 #my input vars
 CORES="50"
 GENOME_FOLDER_PATH="${PWD}"
@@ -14,7 +14,7 @@ for LIBS in $GENOME_FOLDER_PATH/*_1*.fq.gz; do
         REV="${REV#$GENOME_FOLDER_PATH/}"
         echo "files used for -1 and -2 are $LIBS and $REV"
         bismark --multicore $CORES $CONVERTED_GENOME_PATH -1 $LIBS -2 $REV
-        #getting cov file from previosly generated bam file
+        #getting cov file from previously generated bam file
         BASE_NAME_LIBS="${LIBS#$GENOME_FOLDER_PATH/}"
         BASE_NAME_L1="${BASE_NAME_LIBS%.fq.gz}"
         echo "the base name of the bam file is: $BASE_NAME_L1"
