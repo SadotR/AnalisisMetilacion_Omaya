@@ -18,7 +18,7 @@ for LIBS in $GENOME_FOLDER_PATH/*_1*.fq.gz; do
         BASE_NAME_LIBS="${LIBS#$GENOME_FOLDER_PATH/}"
         BASE_NAME_L1="${BASE_NAME_LIBS%.fq.gz}"
         echo "the base name of the bam file is: $BASE_NAME_L1"
-        bismark_methylation_extractor --scaffolds --multicore $CORES --bedGraph ${BASE_NAME_L1}_bismark>
+        bismark_methylation_extractor --scaffolds --multicore $CORES --bedGraph ${BASE_NAME_L1}_bismark_bt2_pe.bam
         rm ${BASE_NAME_L1}_bismark_bt2_pe.bam
         mv *.cov.gz cov_files_supp
         mv *_report.txt bt2_files
